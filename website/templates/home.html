@@ -1,0 +1,27 @@
+<!-- templates/weather.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Checker</title>
+</head>
+<body>
+    <h1>Check the Weather</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <label for="city">city name</label>
+        {{ form.city }} <br><br>
+        <button type="submit">Get Weather</button>
+    </form>
+
+    {% if weather %}
+        <h2>The weather in {{ city }} is: {{ weather }}</h2>
+        <h2>The temperature is: {{ temp }}ºF</h2>
+        <h2>The wind speed is: {{ wind }} mph</h2>
+    {% elif error %}
+        <h2>{{ error }}</h2>
+    {% endif %}
+</body>
+</html>
