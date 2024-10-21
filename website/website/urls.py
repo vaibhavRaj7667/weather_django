@@ -20,5 +20,6 @@ from pdf import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
     path('weather/', views.get_weather, name='get_weather'),
 ]
